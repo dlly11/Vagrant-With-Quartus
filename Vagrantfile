@@ -9,7 +9,8 @@ Vagrant.configure("2") do |config|
         focal.vm.provider "virtualbox" do |vb|
 			vb.gui = true
 			vb.name = "Quartus_Ubuntu"
-			vb.memory = "8192"
+			vb.cpus = "2"
+			vb.memory = "4096"
 			vb.customize ["modifyvm", :id, "--vram", "128"]
             vb.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
 			vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
