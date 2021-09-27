@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
     config.vm.define "focal", primary: true do |focal|
 		focal.vm.box = "ubuntu/focal64"
-		focal.vm.synced_folder ".", "/shared",
+		focal.vm.synced_folder "./", "/shared",
                 owner: "vagrant", group: "vagrant"
         focal.vm.provider "virtualbox" do |vb|
 			vb.gui = true
@@ -16,6 +16,13 @@ Vagrant.configure("2") do |config|
             vb.customize ["modifyvm", :id, "--audioin", "on"]
             vb.customize ["modifyvm", :id, "--audioout", "on"]
             vb.customize ["modifyvm", :id, "--audiocontroller", "hda"]
+			vb.customize ["modifyvm", :id, "--usb", "on"]
+			vb.customize ["modifyvm", :id, "--usbehci", "on"]
+			vb.customize ["usbfilter", "add", "0", 
+				"--target", :id, 
+				"--name", "Altera DE-SoC",
+				"--vendorid", "09fb",
+				"--productid", "6010"]
 			disk_image = File.join(File.dirname(File.expand_path(__FILE__)),
 				'ubuntu_20_04.vdi')
 			unless File.exist?(disk_image)
@@ -68,6 +75,9 @@ Vagrant.configure("2") do |config|
 
         focal.vm.provision "shell",
 			inline: "sudo apt update && sudo apt -y full-upgrade && sudo apt -y autoremove || :"
+
+		focal.vm.provision "shell",
+			inline: "sudo apt install -y virtualbox-guest-additions-iso virtualbox-guest-x11 || :"
 
 		focal.vm.provision "shell",
 			inline: "cat /root/.profile | grep PATH >> /home/vagrant/.profile || :"

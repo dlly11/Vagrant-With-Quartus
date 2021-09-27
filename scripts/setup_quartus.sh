@@ -60,7 +60,7 @@ echo "Installing Quartus, this may take some time..."
 echo "Cleaning up"
 rm -r /workspace/components
 
-if [ -f "/workspace${tar_file}" ]
+if [ -f "/workspace/${tar_file}" ]
 then
     echo "Removing Tar file"
     rm /workspace/$tar_file
