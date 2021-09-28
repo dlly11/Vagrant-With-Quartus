@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=My Computer
+Comment=All system files
+Icon=computer
+Type=Link
+URL=/
+OnlyShowIn=KDE

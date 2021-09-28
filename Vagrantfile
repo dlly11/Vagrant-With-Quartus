@@ -82,5 +82,27 @@ Vagrant.configure("2") do |config|
 
 		focal.vm.provision "shell",
 			inline: "cat /root/.profile | grep PATH >> /home/vagrant/.profile || :"
+
+		focal.vm.provision "shell",
+			inline: "runuser -l vagrant -c  'source /shared/scripts/setup_simulator.sh' || :"
+
+		focal.vm.provision "shell",
+			inline: "runuser -l vagrant -c  'mkdir /home/vagrant/Desktop || :"
+
+		focal.vm.provision "shell",
+			inline: "cp -f /shared/desktop_files/* /home/vagrant/Desktop/ || :"
+
+		focal.vm.provision "shell",
+			inline: "install -D -m644 /shared/quartus-free/quartus.desktop /home/vagrant/Desktop/quartus.desktop"
+
+		focal.vm.provision "shell",
+			inline: "install -D -m644 /shared/quartus-free/modelsim-ase.desktop /home/vagrant/Desktop/modelsim-ase.desktop"
+
+		focal.vm.provision "shell",
+			inline: "chown vagrant:vagrant /home/vagrant/Desktop/* || :"
+
+		focal.vm.provision "shell",
+			inline: "chmod +x /home/vagrant/Desktop/* || :"
+
 	end
 end

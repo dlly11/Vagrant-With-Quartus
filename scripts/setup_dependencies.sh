@@ -48,6 +48,7 @@ rsync
 python3-pip
 python3
 gcc-multilib
+g++-multilib
 xterm
 net-tools
 libidn11
@@ -59,10 +60,8 @@ libxi6:i386
 EOT
 set -e
 
-sudo apt-get update
 sudo dpkg --add-architecture i386
 sudo apt-get update
 sudo add-apt-repository -y ppa:ubuntu-toolchain-r/ppa
 sudo apt update
 sudo apt-get install -y $PACKAGES
-sudo apt full-upgrade -y

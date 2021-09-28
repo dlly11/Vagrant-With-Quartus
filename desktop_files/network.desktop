@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Network
+Comment=Network shares
+Icon=preferences-system-network-server-ftp
+Type=Link
+URL=remote:/
+OnlyShowIn=KDE

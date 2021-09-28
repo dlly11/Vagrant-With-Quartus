@@ -6,7 +6,7 @@ This is a virtual machine configurator to set up Ubuntu version 20.04 with Quart
 This will provide an environment with:
 * Quartus Prime Lite edition (Version 20.1)
 * Modelsim Starter Edition
-* TODO: [DESim](https://github.com/fpgacademy/DESim)  
+* [DESim](https://github.com/fpgacademy/DESim)  (Note: DESim is forked to include Linux compatibility)
 
 If you wish to use your own machine for this class, it is recommended that you use the virtual machine (Quartus does not run on OS X). This makes it easier for the demonstrators to help you as there is unlikely to be any issues with the installation of Quartus.
 

@@ -72,6 +72,7 @@ fi
 \cp -f /shared/quartus-free/base_modelsim-ase.sh /shared/quartus-free/modelsim-ase.sh
 \cp -f /shared/quartus-free/base_modelsim-ase.desktop /shared/quartus-free/modelsim-ase.desktop
 
+\cp -f /shared/images/modelsim_icon.png ${_alteradir}/modelsim_ase/modelsim_icon.png
 
  # Replace altera directory in integration files
 sed -i "s,_alteradir,${_alteradir},g" /shared/quartus-free/quartus.sh
@@ -92,5 +93,7 @@ install -D -m644 /shared/quartus-free/quartus.desktop "/usr/share/applications/q
 install -D -m644 /shared/quartus-free/51-usbblaster.rules "/etc/udev/rules.d/51-usbblaster.rules"
 install -D -m755 /shared/quartus-free/modelsim-ase.sh "/etc/profile.d/modelsim-ase.sh"
 install -D -m644 /shared/quartus-free/modelsim-ase.desktop "/usr/share/applications/modelsim-ase.desktop"
+
+
 
 echo "Finished Installing Quartus"
