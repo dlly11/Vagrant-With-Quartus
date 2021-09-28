@@ -87,7 +87,7 @@ Vagrant.configure("2") do |config|
 			inline: "runuser -l vagrant -c  'source /shared/scripts/setup_simulator.sh' || :"
 
 		focal.vm.provision "shell",
-			inline: "runuser -l vagrant -c  'mkdir /home/vagrant/Desktop || :"
+			inline: "mkdir /home/vagrant/Desktop || :"
 
 		focal.vm.provision "shell",
 			inline: "cp -f /shared/images/simulator_icon.png /home/vagrant/DESim/ || :"
@@ -102,7 +102,7 @@ Vagrant.configure("2") do |config|
 			inline: "install -D -m644 /shared/quartus-free/modelsim-ase.desktop /home/vagrant/Desktop/modelsim-ase.desktop"
 
 		focal.vm.provision "shell",
-			inline: "chown vagrant:vagrant /home/vagrant/Desktop/* || :"
+			inline: "chown -R vagrant:vagrant /home/vagrant/* || :"
 
 		focal.vm.provision "shell",
 			inline: "chmod +x /home/vagrant/Desktop/* || :"
