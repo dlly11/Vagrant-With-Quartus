@@ -90,6 +90,9 @@ Vagrant.configure("2") do |config|
 			inline: "runuser -l vagrant -c  'mkdir /home/vagrant/Desktop || :"
 
 		focal.vm.provision "shell",
+			inline: "cp -f /shared/images/simulator_icon.png /home/vagrant/DESim/ || :"
+		
+		focal.vm.provision "shell",
 			inline: "cp -f /shared/desktop_files/* /home/vagrant/Desktop/ || :"
 
 		focal.vm.provision "shell",

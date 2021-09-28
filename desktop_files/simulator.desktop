@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=Development
+Comment[en_AU]=DESim Simulator
+Comment=DESim Simulator
+Exec=~/DESim/run.sh
+GenericName[en_AU]=
+GenericName=
+Icon=~/DESim/simulator_icon.png
+MimeType=
+Name[en_AU]=Simulator
+Name=Simulator
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
