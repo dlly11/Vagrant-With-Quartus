@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=Education;Science;Math;
+Comment=Interactive programming environment for numerical computations
+Exec=/usr/bin/octave --gui %f
+GenericName=
+Icon=octave
+Keywords=science;math;matrix;numerical computation;plotting;
+MimeType=text/x-matlab;text/x-matlab;
+Name=GNU Octave (Matlab Alternative)
+Path=
+StartupNotify=false
+StartupWMClass=GNU Octave
+Terminal=false
+TerminalOptions=
+TryExec=/usr/bin/octave
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

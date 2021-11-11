@@ -5,48 +5,54 @@ script_dir=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
 
 pkgbase=quartus-free
 pkgname=(${pkgbase} ${_components[@]})
+
 # Keep dot in _patchver
 _mainver=20.1; _patchver=.1; _buildver=720
-# Latest HLS compiler was only released with Pro numbering
-#_promain=20.3; _propatch=.0; _probuild=158; _prover=${_promain}${_propatch}.${_probuild}
+# Latest version of quartus - issues with licensing, do not use without installing an older version of modelsim
+#_mainver=21.1; _patchver=.0; _buildver=842
+
+_fpgadir="/workspace/intelFPGA"
+_alteradir="${_fpgadir}/${_mainver}"
 pkgver=${_mainver}${_patchver}.${_buildver}
-#arch=('x86_64')
 
 tar_file=Quartus-lite-${pkgver}-linux.tar
-
 _base_url="https://download.altera.com/akdlm/software/acdsinst"
-source=("${_base_url}/${_mainver}std${_patchver}/${_buildver}/ib_tar/${tar_file}")
 
-
-
-if [ -f "/shared/${tar_file}" ]
+if [ $_patchver == ".0" ];
 then
-    echo "Extracting Quartus, this may take some time..."
-    tar -xvf /shared/${tar_file} -C /workspace
+    source=("${_base_url}/${_mainver}std/${_buildver}/ib_tar/${tar_file}")
 else
-    echo "Downloading Quartus, this may take some time..."
-    wget $source -P /workspace
-    echo "Extracting Quartus, this may take some time..."
-    tar -xvf /workspace/${tar_file} -C /workspace
+    source=("${_base_url}/${_mainver}std${_patchver}/${_buildver}/ib_tar/${tar_file}")
 fi
-
-_alteradir="/workspace/intelFPGA/${_mainver}"
 
 if [ -d $_alteradir ]
 then
     echo "$_alteradir exists"
 else
     echo "$_alteradir does not exist: creating..."
-    mkdir /workspace/intelFPGA
+    mkdir $_fpgadir
     mkdir $_alteradir
 fi
 
-sudo chmod a+x /workspace/components/*.run
+if [ -f "/shared/${tar_file}" ]
+then
+    echo "Extracting Quartus, this may take some time..."
+    tar -xvf /shared/${tar_file} -C ${_fpgadir}
+else
+    echo "Downloading Quartus, this may take some time..."
+    wget $source -P /shared
+    echo "Extracting Quartus, this may take some time..."
+    tar -xvf /shared/${tar_file} -C ${_fpgadir}
+fi
+
+
+
+
+
+sudo chmod a+x ${_fpgadir}/components/*
 sudo chown -R vagrant:vagrant /workspace/*
 
-
-
-install_command="/workspace/components/QuartusLiteSetup-${pkgver}-linux.run \
+install_command="${_fpgadir}/components/QuartusLiteSetup-${pkgver}-linux.run \
         --disable-components modelsim_ae \
         --mode unattended \
         --unattendedmodeui none \
@@ -58,13 +64,15 @@ echo "Installing Quartus, this may take some time..."
 
 # Cleanup
 echo "Cleaning up"
-rm -r /workspace/components
+rm -r ${_fpgadir}/components
+rm ${_fpgadir}/readme.txt
+rm ${_fpgadir}/setup.sh
 
-if [ -f "/workspace/${tar_file}" ]
-then
-    echo "Removing Tar file"
-    rm /workspace/$tar_file
-fi
+#if [ -f "/workspace/${tar_file}" ]
+#then
+#    echo "Removing Tar file"
+#    rm /workspace/$tar_file
+#fi
 
  # Copy over base files
 \cp -f /shared/quartus-free/base_quartus.sh /shared/quartus-free/quartus.sh
