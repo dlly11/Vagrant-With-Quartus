@@ -84,7 +84,7 @@ Once installed, simply type `vagrant reload` in the cloned repository folder in 
     2. Shift+Right Click in the folder that you wish to clone to and click "Open PowerShell window here".
         ![Alt text](./images/opening_a_shell.PNG "Opening PowerShell")
 
-    3. Copy and paste `git clone https://gitlab.eng.unimelb.edu.au/david_lynch/vagrant-with-quartus.git` into powershell and then hit enter (don't close PowerShell).
+    3. Copy and paste `git clone https://github.com/dlly11/Vagrant-With-Quartus.git` into powershell and then hit enter (don't close PowerShell).
 
         ![Alt text](./images/git_clone.PNG "Git Clone")
 
@@ -98,7 +98,7 @@ Once installed, simply type `vagrant reload` in the cloned repository folder in 
 
     2.  Open a terminal again from spotlight. You will need to know the path of the folder you created. Assuming you created it in ~/workspace/ - type `cd ~/workspace` and hit enter.
 
-    3. Copy and paste `git clone https://gitlab.eng.unimelb.edu.au/david_lynch/vagrant-with-quartus.git` into the terminal and then hit enter (don't close the terminal).
+    3. Copy and paste `git clone https://github.com/dlly11/Vagrant-With-Quartus.git` into the terminal and then hit enter (don't close the terminal).
     
 6. Configuring your virtual machine (optional)
 
