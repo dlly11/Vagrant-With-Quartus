@@ -68,8 +68,10 @@ Vagrant.configure("2") do |config|
         focal.vm.provision "shell",
 			inline: "apt-mark hold gdm3"
 
+		#focal.vm.provision "shell",
+		#	inline: "apt install -y kde-full || :"
 		focal.vm.provision "shell",
-			inline: "apt install -y kde-full || :"
+			inline: "apt install -y kde-plasma-desktop || :"
 
         focal.vm.provision "shell",
 			inline: "/bin/bash /shared/scripts/sddm_fix.sh"

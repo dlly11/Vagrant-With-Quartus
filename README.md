@@ -134,6 +134,26 @@ Once installed, simply type `vagrant reload` in the cloned repository folder in 
     * Try opening Modelsim. Repeat above with Modelsim.
     * Dolphin is the default file explorer in KDE. Open an instance of Dolphin and check if the fpga_gui folder is present. Open it and double click `run.sh`. Did it open the simulator?
 
+## DESim
+The DESim is an open source simulator / gui for the DE1-SoC board. This is available on Windows and Linux and you are free to install it directly onto Windows if you wish. It is included in this virtual machine so you can avoid the set up. Here is how to use it:
+
+1. Opening the simulator. 
+    On the desktop there should be an icon that called Simulator. If you click on this it should open.
+
+    **NOTE**: If there is no icon on the desktop for this. Nagivate to ~/DESim/ and click in run.sh
+2. Running a demo.
+   1. Click "Open Project" at the top.
+   2. Open the folder ~/DESim/demos/LED_HEX/
+   3. Click Compile Testbench
+   4. Click Start Simulation
+   5. Once the dialog to the left saus "Connected to the simulator" you can start changing the switchs and the push buttons.
+3. Running your own code. 
+   1. The recommended way to do this is to first create a new folder where you will be testing your code.
+   2. Copy the LED_HEX demo files into your new folder.
+   3. Modify the file top.v to use your own design rather than the LED_HEX module.
+   4. Repeat the steps seen in Running a demo.
+
+Feel free to explore the other demos included. There are some issues with the vga display demos. This may have been fixed in the original git repository.
 
 ## Troubleshooting
 

@@ -37,12 +37,12 @@ fi
 if [ -f "/shared/${tar_file}" ]
 then
     echo "Extracting Quartus, this may take some time..."
-    tar -xvf /shared/${tar_file} -C ${_fpgadir}
+    tar -xvf /shared/${tar_file} -C ${_fpgadir} --exclude "components/arria_lite-${pkgver}.qdz" --exclude "components/cyclone10lp-${pkgver}.qdz" --exclude "components/max10-${pkgver}.qdz"
 else
     echo "Downloading Quartus, this may take some time..."
     wget $source -P /shared
     echo "Extracting Quartus, this may take some time..."
-    tar -xvf /shared/${tar_file} -C ${_fpgadir}
+    tar -xvf /shared/${tar_file} -C ${_fpgadir} --exclude "components/arria_lite-${pkgver}.qdz" --exclude "components/cyclone10lp-${pkgver}.qdz" --exclude "components/max10-${pkgver}.qdz"
 fi
 
 
