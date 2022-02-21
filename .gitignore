@@ -2,3 +2,5 @@
 *.vdi
 Quartus-lite-21.1.0.842-linux.tar
 Quartus-lite-20.1.1.720-linux.tar
+
+*.log
